@@ -257,6 +257,13 @@ class ViewTransformer(nn.Module):
             radar_feats: 毫米波雷达特征 (可选)
             light_condition: 光照条件估计值 [B, 1] (可选)
         """
+        # 在view_transformer.py中出错位置前添加
+        print(f"img_feats类型: {type(img_feats)}")
+        print(f"img_feats[0]类型: {type(img_feats[0])}")
+        if isinstance(img_feats[0], tuple):
+            print(f"img_feats[0]长度: {len(img_feats[0])}")
+            print(f"第一个元素类型: {type(img_feats[0][0])}")
+
         batch_size = img_feats[0].shape[0]
         
         # 使用第一个相机的内参和外参进行初始化

@@ -82,7 +82,7 @@ __C.MODEL.NAME = 'DynamicSparseBEV'
 # 图像骨干网络配置
 __C.IMG_BACKBONE = edict()
 __C.IMG_BACKBONE.NAME = 'ResNet'
-__C.IMG_BACKBONE.PATH = os.path.join(os.path.join(__C.MODELS_DIR, 'backbones'), 'fasterrcnn_resnet50_fpn_v2_coco-dd69338a.pth')
+__C.IMG_BACKBONE.PATH = os.path.join(__C.ROOT_DIR, 'fasterrcnn_resnet50_fpn_v2_coco-dd69338a.pth')
 __C.IMG_BACKBONE.PRETRAINED = True
 __C.IMG_BACKBONE.IN_CHANNELS = 3
 __C.IMG_BACKBONE.OUT_CHANNELS = 512
