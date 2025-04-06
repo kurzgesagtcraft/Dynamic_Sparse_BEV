@@ -1,0 +1,17 @@
+https://git-lfs.com/?spm=a2ty_o01.29997173.0.0.470a5171fRCcSh
+
+git lfs install
+
+git lfs track "*.png"
+git lfs track "*.jpg"
+git lfs track "*.bin"
+git lfs track "*.pcd"
+
+git add .gitattributes
+git commit -m "Track .pth.png.jpg.bin.pcd files with Git LFS"
+
+java -jar ./bfg-1.15.0.jar --delete-files ./data/*
+
+git reflog expire --expire=now --all && git gc --prune=now --aggressive
+git push --set-upstream origin add_data --force
+
