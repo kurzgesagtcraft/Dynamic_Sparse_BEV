@@ -94,7 +94,12 @@ class DynamicSparseBEV(nn.Module):
         # 从增强后的图像提取特征
         img_feats = []
         for img in enhanced_imgs:
-            img_feats.append(self.img_backbone(img))
+            backbone_output = self.img_backbone(img)
+            # 如果backbone_output是元组，只取需要的部分
+            if isinstance(backbone_output, tuple):
+                img_feats.append(backbone_output[0])  # 取第一个元素
+            else:
+                img_feats.append(backbone_output)
         
         return img_feats, is_night
     
